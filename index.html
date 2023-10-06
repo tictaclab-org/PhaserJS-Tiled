@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>PhaserJS #8</title>
+  <link rel="shortcut icon" type="image/png" href="images/ico_full.png" />
+  <link rel="stylesheet" href="stylesheet/prism.css">
+  <link rel="stylesheet" href="stylesheet/style.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css"
+    integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <style>
+    img {
+      margin: auto;
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Introduction -->
+  <div class="banner"
+    style="display: block !important; background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url('https://d2skuhm0vrry40.cloudfront.net/2018/articles/2018-08-29-13-52/nintendo-takes-down-11-year-old-pokemon-fangame-kit-1535547168922.jpg/EG11/thumbnail/750x422/format/jpg/quality/60');">
+    <div class="container text-center">
+      <div class="main">
+        <img src="images/logo.png" alt="">
+        <div class="class-title text-center">
+          <h1>PhaserJS<br> Fiche 9</h1>
+        </div>
+      </div>
+      <p>Durant cette session, on va plus se concentrer sur la création de jeux vidéos dans le language JavaScript. Pour
+        ce faire, on se servira de la librarie <b>Phaser</b>.</p>
+    </div>
+  </div>
+
+  <div class="container" id="challenge">
+
+    <div class="accordion" id="accordionExample">
+
+      <!-- Étape 1 -->
+      <div class="card">
+        <div class="card-header" id="heading1">
+          <h2 class="mb-0">
+            <button class="btn btn-link done task" type="button" data-toggle="collapse" data-target="#collapse1"
+              aria-expanded="false" aria-controls="collapse1">
+              Étape 1 - Défis à compléter avant
+            </button>
+          </h2>
+        </div>
+        <div id="collapse1" class="collapse show" aria-labelledby="heading1" data-parent="#accordionExample">
+          <div class="card-body">
+            <p>Avant d'entamer ce défi, assure toi d'avoir déjà fait ceux ci:</p>
+            <ul>
+              <li><a href="https://techieslab.github.io/PhaserJS-Introduction/">PhaserJS - Personnage</a></li>
+              <li><a href="https://techieslab.github.io/PhaserJS-Platforms/">PhaserJS - Plateformes</a></li>
+              <li><a href="https://techieslab.github.io/PhaserJS-GagnerPerdre/">PhaserJS - Gagner et Perdre</a></li>
+              <li><a href="https://techieslab.github.io/PhaserJS-MapFacile/">PhaserJS - Map Facile</a></li>
+              <li><a href="https://techieslab.github.io/PhaserJS-PointsEtVies/">PhaserJS - Points et Vies</a></li>
+              <li><a href="https://techieslab.github.io/PhaserJS-CoeursEtEnnemis/">PhaserJS - Coeurs et Ennemis</a></li>
+              <li><a href="https://techieslab.github.io/PhaserJS-Animations/">PhaserJS - Animations</a></li>
+              <li><a href="https://techieslab.github.io/PhaserJS-Sons/">PhaserJS - Sons</a></li>
+            </ul>
+            <p>Ensuite, assure-toi de te munir d'une grande motivation et soif d'apprendre!</p>
+            <p>Aussi, assure-toi que tu sois bien connecté à ton compte <a href="https://repl.it">Repl.It</a>, et que tu
+              aies ton projet de la fois passée.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Étape 2 -->
+      <div class="card">
+        <div class="card-header" id="heading2">
+          <h2 class="mb-0">
+            <button class="btn btn-link task" type="button" data-toggle="collapse" data-target="#collapse2"
+              aria-expanded="false" aria-controls="collapse2">
+              Étape 2 - Configuration de Tiled
+            </button>
+          </h2>
+        </div>
+        <div id="collapse2" class="collapse" aria-labelledby="heading2" data-parent="#accordionExample">
+          <div class="card-body">
+            <p>Durant cette session nous allons créer des maps faciles mais complexes. Laisses-moi expliquer! On va
+              créer des maps complexes car elles pourront contenir un grand nombre d'élèments differents, mais on va
+              utiliser un outil afin de rendre cette création plus simple.</p>
+
+            <p>Tu te demandes surement comment ceci diffère de la Fiche 4, qui s'appellait "Map Facile". Dans cette
+              fiche on a créé des maps plus simples, mais toujours très limitées. Si on veut ajouter 50 designs
+              différents, et créer une map de 1000 x 200 cases, on aurait toujours du mal avec la méthode utilisée lors
+              de cette fiche. On va employer un outil externe développé spécialement pour la création de maps
+              aujourd'hui, qui rendra cela facile de travailler avec des nombres aussi grands que ceux mentionnés.</p>
+
+            <p>L'outil qu'on va utiliser s'appelle <b>Tiled</b>. Pour commencer, tu peux télécharger l'outil <a
+                href="https://thorbjorn.itch.io/tiled/download/eyJpZCI6Mjg3NjgsImV4cGlyZXMiOjE2OTYzMjQxMjd9%2eJuVHQplQaIXgRNzIUCiWIVu2aEc%3d">ici</a>.
+              Séléctionnes bien le système opératoire correspondant. Une fois l'outil téléchargé, lances-le et
+              séléctionnes "New Map". Une nouvelle fenêtre avec des paramètres de ta map s'ouvrira. Copies les
+              paramètres de l'image qui suit.</p>
+
+            <img src="images/tiled_params.png" alt="" style="width:70%; margin: auto;">
+
+            <p>Note que la map sera 3200x640 pixels. Si tu désires changer la taille du monde il suffit d'adapter la
+              hauteur (height) et la longueur (width). Note que tu ne peux pas séléctionner "infinite", car Phaser n'est
+              pas compatible avec.</p>
+
+            <p>Une fois les paramètres configurés, séléctionnes "OK", et zoomes sur le petit rectangle gris, qui
+              constitue ta map. Assures-toi de sauvegarder ta map, au cas où tu dois fermer l'application de manière
+              inattendue. Le
+              format de Tiled est en .tmx.</p>
+
+            <img src="images/tiled_edits.png" alt="" style="width:90%; margin: auto;">
+
+            <p>Regardons plus en profondeur l'outil d'éditage de Tiled:
+            <ul>
+              <li>La colonne de gauche contient les paramètres configurés plus tôt. On va éviter de toucher à ceci.</li>
+              <li>L'espace au centre représente la map, sous formes de "tiles", au nombre de 100x20.</li>
+              <li>La barre supérieure comprend les différents outils pour remplir la map.</li>
+              <li>La partie supérieure de la colonne de droite comprend les différents calques. On pourra par example
+                définir un calque d'arrière plan (Qui ne nous bloque pas), et un calque de blocs (Qui nous bloque).</li>
+              <li>La partie inférieure de la colonne de droite comprend les différents tiles.</li>
+            </ul>
+            </p>
+
+            <p>Pour ajouter des tiles, on utilise un "tileset". Un tileset est un fichier (une image) qui regroupe tous
+              les tiles. Les tiles dans ce tileset doivent avoir la bonne taille (ici 32x32 pixels), sans espaces entre
+              les différents tiles. Un example de tileset est présent dans l'image suivante. Tu peux retrouver un nombre
+              énorme de tilesets sur <a href="https://opengameart.org">le lien suivant</a>. Assures-toi d'utiliser un
+              tileset dont les images sont toutes dans une même image, et non dans un grand nombre d'images séparées.
+            </p>
+
+            <img src="images/tileset.png" alt="" style="width: 50%; align-content: center;">
+
+            <p>Une fois que tu as trouvé ton tileset (tu peux également télécharger le mien avec un clic droit sur
+              l'image), il faut l'intégrer dans Tiled. Appuie sur "New Tileset", et une nouvelle fênetre apparaitra. Il
+              n'y a pas besoin de changer un nombre énorme de paramètres, il suffit de cocher la case "Embed in map", de
+              donner un nom, et d'importer notre fichier tileset.</p>
+
+            <img src="images/new_tileset.png" alt="" style="width: 70%">
+
+            <p>Ce n'est bien entendu pas obligatoire d'utiliser les mêmes noms qu'ici, mais n'oublies pas d'adapter les
+              noms dans ton code plus tard alors!</p>
+
+            <p>En bas à droite, tu trouveras tous tes tiles importés maintenant. Super!</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Étape 3 -->
+      <div class="card">
+        <div class="card-header" id="heading3">
+          <h2 class="mb-0">
+            <button class="btn btn-link task" type="button" data-toggle="collapse" data-target="#collapse3"
+              aria-expanded="false" aria-controls="collapse3">
+              Étape 3 - Création de la map
+            </button>
+          </h2>
+        </div>
+        <div id="collapse3" class="collapse" aria-labelledby="heading3" data-parent="#accordionExample">
+          <div class="card-body">
+            <p>Avant de créer nore map, on doit d'abord créer des calques ("layers" en anglais). Ceci est important, car
+              cela nous permet de distinguer entre l'arrière-plan, les objets, les plateformes, etc. Crées deux calques
+              de tiles (Tile Layer), un qui s'appelle "layer_platforms" (pour les plateformes) et un qui s'appelle
+              "layer_background" (pour l'arrière plan). Tu peux effacer le calque pré-existant. Notes que l'ordre des
+              calques est important! Tu peux les déplacer, mais assures-toi que le calque des plateformes soit <b>au
+                dessus</b> du calque de l'arrière-plan.</p>
+
+            <img src="images/new_layer.png" alt="" width="70%">
+
+            <p>Maintenant tu peux remplir l'arrière-plan (layer_background) et les plateformes (layer_platforms). Afin
+              de rendre la configuration plus simple tu peux cacher / montrer les différents calques grâce au petit logo
+              de l'oeil. À la fin, montres les deux calques afin de visualiser ta map. Sois plus créatif que moi 😜.</p>
+
+            <img src="images/full_map.png" alt="" width="90%">
+
+            <p>Avant de pouvoir intégrer la map dans Phaser, on doit préciser ce qui est solide et ce qui ne l'est pas.
+              Afin de ce faire, trouve le logo "edit tileset" en bas de la colonne à droite. Une nouvelle fênetre
+              s'ouvre dans laquelle on peut ajouter des <i>propriétés</i> à notre tileset.</p>
+
+            <img src="images/edit_tileset.png" alt="" width="10%">
+            <p>Séléctionnes <b>tous les tiles</b> (soit en glissant sur tous ou en faisant CTRL / CMD + A), et
+              séléctionnes le "+" en bas de l'écran pour ajouter une propriété.</p>
+
+            <img src="images/add_prop.png" alt="" width="100%">
+
+            <p>Tu peux maintenant configurer la propriété. Nommons la "solide", qui est du type "Bool" (donc vrai ou
+              faux). Cette propriété va indiquer si oui ou non le joueur peut rentrer en contact avec ce tile.</p>
+
+            <img src="images/prop.png" alt="" width="50%">
+
+            <p>Pour chaque tile avec laquelle le joueur peut rentrer en contact, coches la case "solide". Si tu ne
+              désires pas que ton joueur puisse interagir avec ce tile (les éléments de l'arrière plan), ne coches pas
+              la case!</p>
+
+            <p>Fini la partie dans Tiled! Il suffit maintenant d'exporter notre map, et on pourra l'intégrer dans
+              Phaser! Retournes sur ta carte avant d'exporter, sinon tu vas exporter uniquement les propriétés et non
+              les positions des tiles.</p>
+
+            <img src="images/return.png" alt="" width="50%">
+
+            <p>Trouves la case "Export As" (Sous "File"), et exportes toute la map en format .json.</p>
+
+            <img src="images/export.png" alt="" width="50%">
+
+            <p><b>Résultat:</b> Tu as maintenant deux documents très importants! Tu as le document "tileset.png" (ou un
+              autre nom), qui
+              contient le tileset, et un document "tileset.json" (ou un autre nom), qui contient toutes les données
+              exportées de Tiled.</p>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- Étape 4 -->
+      <div class="card">
+        <div class="card-header" id="heading4">
+          <h2 class="mb-0">
+            <button class="btn btn-link task" type="button" data-toggle="collapse" data-target="#collapse4"
+              aria-expanded="false" aria-controls="collapse4">
+              Étape 4 - Intégration avec Phaser
+            </button>
+          </h2>
+        </div>
+        <div id="collapse4" class="collapse" aria-labelledby="heading4" data-parent="#accordionExample">
+          <div class="card-body">
+            <p>On va maintenant intégrer notre nouvelle map dans Phaser! Créeons d'abord un jeu très basique en Phaser.
+              Mon jeu très basique est généré par le code suivant.</p>
+
+            <pre><code class="language-js">
+                var config = {
+                  type: Phaser.AUTO,
+                  width: 800,
+                  height: 600,
+                  physics: {
+                    default: 'arcade'
+                  },
+                  scene: {
+                    preload,
+                    create,
+                    update
+                  }
+                };
+                
+                const game = new Phaser.Game(config);
+                
+                function preload() {
+                  // Charger les images
+                  this.load.image("img_background", "assets/sky.png");
+                  this.load.image("img_platform", "assets/platform.png");
+                  this.load.image("img_player", "player.png");
+                }
+                
+                function create() {
+                  // Ajouter l'arrière-plan
+                  this.add.image(400, 300, "img_background");
+                
+                  // Groupe statique pour les plateformes
+                  this.platforms = this.physics.add.staticGroup();
+                
+                  // Créer les platesformes
+                  this.platforms.create(200, 584, "img_platform");
+                  this.platforms.create(600, 584, "img_platform");
+                  this.platforms.create(50, 400, "img_platform");
+                
+                  // Créer le joueur
+                  this.player = this.physics.add.sprite(100, 450, 'img_player'); 
+                  this.player.setCollideWorldBounds(true); 
+                  this.player.body.setGravityY(300);
+                
+                  // Éviter le passage à travers les plateformes
+                  this.physics.add.collider(this.player, this.platforms); 
+                
+                  // Créer les clés du clavier
+                  this.key_D = this.input.keyboard.addKey(68);
+                  this.key_A = this.input.keyboard.addKey(65);
+                  this.key_W = this.input.keyboard.addKey(87);
+                }
+                
+                function update() {
+                  // Déplacer le joueur
+                  if(this.key_D.isDown) {
+                    this.player.setVelocityX(100);
+                  } else if(this.key_A.isDown) {
+                    this.player.setVelocityX(-100);
+                  } else {
+                    this.player.setVelocityX(0);
+                  }
+                  if(this.key_W.isDown && this.player.body.touching.down) {
+                    this.player.setVelocityY(-400);
+                  }
+                }
+              </code></pre>
+
+            <p><b>Note:</b> Ceci est un jeu très basique. Le but initial est de charger un monde plus compliqué, on
+              pourra
+              toujours ajouter des fonctionalités plus complexes au jeu plus tard. De plus, afin de mieux organiser tous
+              les documents à ajouter au jeu, j'ai mis toutes les images dans un dossier "assets". Ceci n'est bien
+              entendu pas obligatoire, et peut être changé en changeant le code dans le fonction <code>preload()</code>.
+            </p>
+
+            <p>La première chose importante à adapter est la taille de notre jeu. Le jeu de ci-haut est de 800 x 600
+              pixels, alors que notre map est de 3200 x 640 pixels. On ne va pas changer la largeur pour être 3200,
+              comme on ne veut pas voir toute la map en même temps, mais la hauteur doit être corrigée.</p>
+
+            <p>Chargeons ensuite le tileset dans Phaser. Ceci peut être fait grâce à la commande
+              <code>this.load.image()</code> au sein de la fonction <code>preload()</code>, comme pour toutes nos autres
+              images. De manière analogue, on doit donner un nom interne au tileset, et préciser le nom réel du tileset.
+            </p>
+
+            <pre><code class="language-js">
+              this.load.image("img_tileset", "assets/tileset.png");
+            </code></pre>
+
+            <p>Il faut également charger tous les détails extraits de Tiled. Ceci peut se faire grâce à la commande
+              <code>this.load.tilemapTiledJSON()</code>, toujours dans la fonction <code>preload()</code>.
+            </p>
+
+            <pre><code class="language-js">
+              this.load.tilemapTiledJSON("tiled_map", "assets/tileset.json"); 
+            </code></pre>
+
+            <p>Au sein de la fonction <code>create()</code>, il faut maintenant charger la map ainsi que le tileset. Les
+              deux sont stockées au sein du document JSON téléchargé de Tiled. Tu peux mettre ces fonctions où tu le
+              veux dans la fonction <code>create()</code>, mais je te recommande de ne pas le mettre à la fin.</p>
+
+            <pre><code class="language-js">
+              // Ajouter la map exportée de Tiled
+              this.map = this.add.tilemap("tiled_map");
+
+              // Charger le tileset du fichier exporté de Tiled
+              this.tileset = this.map.addTilesetImage(
+                "tileset",  // Ceci DOIT correspondre au "name" dans le document JSON (Ligne 6)
+                "img_tileset"
+              );    
+            </code></pre>
+
+            <p>Ensuite on peut charger les calques. Voici le code pour charger le calque "layer_background" (celui de
+              l'arrière-plan), tu peux l'adapter afin d'également ajotuer celui des plateformes, dans une variable
+              s'appellant <code>layer_platforms</code>.</p>
+
+            <pre><code class="language-js">
+              // Charger le calque de l'arrière-plan
+              this.background = this.map.createStaticLayer(
+                "layer_background",  // Ceci DOIT correspondre au nom donné au calque dans Tiled
+                this.tileset
+              );
+            </code></pre>
+
+            <p>Rapelles-toi qu'on avait ajouté une propriété sur certains tiles. Cette propriété décrivait si ces tiles
+              étaient solides ou non. On doit indiquer au code le nom et l'utilité de cette propriété. Cela peut être
+              fait avec le code suivant.</p>
+
+            <pre><code class="language-js">
+              this.platforms.setCollisionByProperty({ solide: true }); 
+            </code></pre>
+
+            <p>N'oublies bien entendu pas d'enlèver la création de l'ancien groupe statique de plateformes ainsi que la
+              création
+              des plateformes, comme nous ne nous en servons plus.</p>
+
+            <p>Notes qu'on a pas défini de collision entre le joueur et les plateformes. C'est parce que nos plateformes
+              s'appellent toujours <code>this.platforms</code>, donc la ligne de code qu'on a utilisée avant fonctionne
+              toujours.</p>
+
+            <pre><code class="language-js">
+                this.physics.add.collider(this.player, this.platforms);
+              </code></pre>
+
+            <p>Dans la function <code>update()</code>, c'est important de changer le
+              <code>this.player.body.touching.down</code> en <code>this.player.body.onFloor()</code> (dans le code pour
+              le saut), comme l'ancienne version de détecter si le joueur est au sol ne fonctionnera plus.
+            </p>
+
+            <p>On a maintenant une plus grande map, mais la caméra ne suit pas le joueur... Te souviens-tu comment
+              corriger cela?</p>
+
+            <pre><code class="language-js">
+                // Dans function create()
+                this.cameras.main.startFollow(this.player);
+
+                // Dans function update()
+                this.cameras.main.setFollowOffset(0, this.player.y - 180);
+              </code></pre>
+
+            <p>De plus, afin de s'assurer qu'on ne puisse pas quitter la map, et que la caméra ne montre pas des
+              endroits en dehors de la map, on peut ajouter une limite au monde et à la map.</p>
+
+            <pre><code class="language-js">
+              this.physics.world.setBounds(0, 0, 3200, 640);
+              this.cameras.main.setBounds(0, 0, 3200, 640);
+            </code></pre>
+
+            <p>Le code adapté ressemble donc au code suivant.</p>
+
+            <pre><code class="language-js">
+                var config = {
+                  type: Phaser.AUTO,
+                  width: 1000,
+                  height: 640,
+                  physics: {
+                    default: 'arcade'
+                  },
+                  scene: {
+                    preload,
+                    create,
+                    update
+                  }
+                };
+                
+                const game = new Phaser.Game(config);
+                
+                function preload() {
+                  // Charger les images
+                  this.load.image("img_player", "player.png");
+                
+                  // Charger le tileset
+                  this.load.image("img_tileset", "assets/tileset.png");
+                  this.load.tilemapTiledJSON("tiled_map", "assets/tileset.json");
+                }
+                
+                function create() {
+                  // Ajouter la map exportée de Tiled
+                  this.map = this.add.tilemap("tiled_map");
+                
+                  // Charger le tileset du fichier exporté de Tiled
+                  const tileset = map.addTilesetImage("tileset", "img_tileset");
+                
+                  // Charger le calque de l'arrière-plan
+                  this.background = map.createStaticLayer("layer_background", tileset);
+                
+                  // Charger le calque des plateformes
+                  this.platforms = map.createStaticLayer("layer_platforms", tileset
+                  );
+                
+                  // Marque le calque des plateformes comme solide
+                  this.platforms.setCollisionByProperty({ solide: true });
+                
+                  // Créer le joueur
+                  this.player = this.physics.add.sprite(100, 450, 'img_player');
+                  this.player.setCollideWorldBounds(true);
+                  this.player.body.setGravityY(300);
+                
+                  // Éviter le passage à travers les plateformes
+                  this.physics.add.collider(this.player, this.platforms);
+                
+                  // Créer les clés du clavier
+                  this.key_D = this.input.keyboard.addKey(68);
+                  this.key_A = this.input.keyboard.addKey(65);
+                  this.key_W = this.input.keyboard.addKey(87);
+                }
+                
+                function update() {
+                  // Déplacer le joueur
+                  if (this.key_D.isDown) {
+                    this.player.setVelocityX(100);
+                  } else if (this.key_A.isDown) {
+                    this.player.setVelocityX(-100);
+                  } else {
+                    this.player.setVelocityX(0);
+                  }
+                  if (this.key_W.isDown && this.player.body.touching.down) {
+                    this.player.setVelocityY(-400);
+                  }
+                }
+              </code></pre>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- Étape 5 -->
+      <div class="card">
+        <div class="card-header" id="heading5">
+          <h2 class="mb-0">
+            <button class="btn btn-link done task" type="button" data-toggle="collapse" data-target="#collapse5"
+              aria-expanded="false" aria-controls="collapse5">
+              Étape 5 - Quoi maintenant?
+            </button>
+          </h2>
+        </div>
+        <div id="collapse5" class="collapse" aria-labelledby="heading5" data-parent="#accordionExample">
+          <div class="card-body">
+            <p>On a maintenant une grand map qui peut être générée sans trop de problèmes. Chouette! Mais cela reste un
+              jeu bien plus simple que ce qu'on avait avant...</p>
+
+            <p>Pas de stress! On peut ajouter tout ce que notre autre jeu avait également. Voici quelques pointeurs sur
+              comment adapter le restant du code pour s'intégrer avec Tiled.</p>
+
+            <p>
+              Pour ajouter des piques comme dans la Fiche 4, ajoutes un calque supplémentaire dans Tiled qui s'appelle
+              <code>layer_spikes</code> (ou autre, le nom est bien entendu arbitraire). Pour générer les piques dans
+              ton jeu, il suffit dès lors d'ajouter ce code dans la fonction <code>create()</code>.
+            <pre><code class="language-js">
+                  this.spikes = this.map.createStaticLayer("layer_spikes", tileset);
+                </code></pre>
+            La fonction qui gére ce qu'il se passe lorsqu'un joueur touche les piques ne change pas, comme on a pas
+            changé ce qu'est <code>this.spikes</code>, mais uniquement comment on crée le groupe.
+            </p>
+
+            <p>De même, les pièces et le trophée peuvent être ajoutés directement dans Tiled, et chargés via la
+              commande <code>this.map.createStaticLayer</code>.</p>
+
+            <p>Tu devrais maintenant avoir un outil afin de créer des mondes encore plus réalistes et originaux. À toi
+              de jouer! </p>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+
+
+
+  <div class=" footer">
+    <div class="footer-links">
+      <a href="https://techieslab.be/"><i class="fas fa-globe"></i></i></a>
+      <a href="https://www.facebook.com/TechiesLabBrussels"><i class="fab fa-facebook"></i></a>
+      <a href="https://www.linkedin.com/company/techies-lab/"><i class="fab fa-linkedin"></i></a>
+      <a href="https://twitter.com/TechiesLab"><i class="fab fa-twitter"></i></a>
+    </div>
+    <div class="footer-copyright">
+      <a href="https://techieslab.be" rel="noopener noreferrer" target="_blank" class="alert-link copyright">
+        <i class="far fa-copyright"></i> 2023 Techies Lab ASBL. All rights reserved.
+      </a>
+    </div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  <script src="javascript/prism.js"></script>
+</body>
+
+</html>
