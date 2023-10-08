@@ -38,7 +38,7 @@
 
   <div class="container" id="challenge">
 
-    <div class="accordion" id="accordionExample">
+    <div class="accordion" id="accordionexemple">
 
       <!-- Étape 1 -->
       <div class="card">
@@ -50,7 +50,7 @@
             </button>
           </h2>
         </div>
-        <div id="collapse1" class="collapse show" aria-labelledby="heading1" data-parent="#accordionExample">
+        <div id="collapse1" class="collapse show" aria-labelledby="heading1" data-parent="#accordionexemple">
           <div class="card-body">
             <p>Avant d'entamer ce défi, assure toi d'avoir déjà fait ceux ci:</p>
             <ul>
@@ -80,13 +80,13 @@
             </button>
           </h2>
         </div>
-        <div id="collapse2" class="collapse" aria-labelledby="heading2" data-parent="#accordionExample">
+        <div id="collapse2" class="collapse" aria-labelledby="heading2" data-parent="#accordionexemple">
           <div class="card-body">
-            <p>Durant cette session nous allons créer des maps faciles mais complexes. Laisses-moi expliquer! On va
-              créer des maps complexes car elles pourront contenir un grand nombre d'élèments differents, mais on va
+            <p>Durant cette session nous allons créer des maps faciles mais complexes. Laisse-moi expliquer! On va
+              créer des maps complexes car elles pourront contenir un grand nombre d'éléments différents, mais on va
               utiliser un outil afin de rendre cette création plus simple.</p>
 
-            <p>Tu te demandes surement comment ceci diffère de la Fiche 4, qui s'appellait "Map Facile". Dans cette
+            <p>Tu te demandes surement comment ceci diffère de la Fiche 4, qui s'appelait "Map Facile". Dans cette
               fiche on a créé des maps plus simples, mais toujours très limitées. Si on veut ajouter 50 designs
               différents, et créer une map de 1000 x 200 cases, on aurait toujours du mal avec la méthode utilisée lors
               de cette fiche. On va employer un outil externe développé spécialement pour la création de maps
@@ -94,20 +94,19 @@
 
             <p>L'outil qu'on va utiliser s'appelle <b>Tiled</b>. Pour commencer, tu peux télécharger l'outil <a
                 href="https://thorbjorn.itch.io/tiled/download/eyJpZCI6Mjg3NjgsImV4cGlyZXMiOjE2OTYzMjQxMjd9%2eJuVHQplQaIXgRNzIUCiWIVu2aEc%3d">ici</a>.
-              Séléctionnes bien le système opératoire correspondant. Une fois l'outil téléchargé, lances-le et
-              séléctionnes "New Map". Une nouvelle fenêtre avec des paramètres de ta map s'ouvrira. Copies les
+              Sélectionne bien le système opératoire correspondant. Une fois l'outil téléchargé, lance-le et
+              sélectionne "New Map". Une nouvelle fenêtre avec des paramètres de ta map s'ouvrira. Copies les
               paramètres de l'image qui suit.</p>
 
             <img src="images/tiled_params.png" alt="" style="width:70%; margin: auto;">
 
             <p>Note que la map sera 3200x640 pixels. Si tu désires changer la taille du monde il suffit d'adapter la
-              hauteur (height) et la longueur (width). Note que tu ne peux pas séléctionner "infinite", car Phaser n'est
+              hauteur (height) et la longueur (width). Note que tu ne peux pas sélectionner "infinite", car Phaser n'est
               pas compatible avec.</p>
 
-            <p>Une fois les paramètres configurés, séléctionnes "OK", et zoomes sur le petit rectangle gris, qui
-              constitue ta map. Assures-toi de sauvegarder ta map, au cas où tu dois fermer l'application de manière
-              inattendue. Le
-              format de Tiled est en .tmx.</p>
+            <p>Une fois les paramètres configurés, sélectionne "OK", et zoome sur le petit rectangle gris, qui
+              constitue ta map. Assure-toi de sauvegarder ta map, au cas où tu dois fermer l'application de manière
+              inattendue. Le format de Tiled est en .tmx.</p>
 
             <img src="images/tiled_edits.png" alt="" style="width:90%; margin: auto;">
 
@@ -116,29 +115,29 @@
               <li>La colonne de gauche contient les paramètres configurés plus tôt. On va éviter de toucher à ceci.</li>
               <li>L'espace au centre représente la map, sous formes de "tiles", au nombre de 100x20.</li>
               <li>La barre supérieure comprend les différents outils pour remplir la map.</li>
-              <li>La partie supérieure de la colonne de droite comprend les différents calques. On pourra par example
-                définir un calque d'arrière plan (Qui ne nous bloque pas), et un calque de blocs (Qui nous bloque).</li>
+              <li>La partie supérieure de la colonne de droite comprend les différents calques. On pourra par exemple
+                définir un calque d'arrière-plan (Qui ne nous bloque pas), et un calque de blocs (Qui nous bloque).</li>
               <li>La partie inférieure de la colonne de droite comprend les différents tiles.</li>
             </ul>
             </p>
 
             <p>Pour ajouter des tiles, on utilise un "tileset". Un tileset est un fichier (une image) qui regroupe tous
               les tiles. Les tiles dans ce tileset doivent avoir la bonne taille (ici 32x32 pixels), sans espaces entre
-              les différents tiles. Un example de tileset est présent dans l'image suivante. Tu peux retrouver un nombre
-              énorme de tilesets sur <a href="https://opengameart.org">le lien suivant</a>. Assures-toi d'utiliser un
+              les différents tiles. Un exemple de tileset est présent dans l'image suivante. Tu peux retrouver un nombre
+              énorme de tilesets sur <a href="https://opengameart.org">le lien suivant</a>. Assure-toi d'utiliser un
               tileset dont les images sont toutes dans une même image, et non dans un grand nombre d'images séparées.
             </p>
 
             <img src="images/tileset.png" alt="" style="width: 50%; align-content: center;">
 
             <p>Une fois que tu as trouvé ton tileset (tu peux également télécharger le mien avec un clic droit sur
-              l'image), il faut l'intégrer dans Tiled. Appuie sur "New Tileset", et une nouvelle fênetre apparaitra. Il
+              l'image), il faut l'intégrer dans Tiled. Appuie sur "New Tileset", et une nouvelle fenêtre apparaitra. Il
               n'y a pas besoin de changer un nombre énorme de paramètres, il suffit de cocher la case "Embed in map", de
               donner un nom, et d'importer notre fichier tileset.</p>
 
             <img src="images/new_tileset.png" alt="" style="width: 70%">
 
-            <p>Ce n'est bien entendu pas obligatoire d'utiliser les mêmes noms qu'ici, mais n'oublies pas d'adapter les
+            <p>Ce n'est bien entendu pas obligatoire d'utiliser les mêmes noms qu'ici, mais n'oublie pas d'adapter les
               noms dans ton code plus tard alors!</p>
 
             <p>En bas à droite, tu trouveras tous tes tiles importés maintenant. Super!</p>
@@ -156,30 +155,31 @@
             </button>
           </h2>
         </div>
-        <div id="collapse3" class="collapse" aria-labelledby="heading3" data-parent="#accordionExample">
+        <div id="collapse3" class="collapse" aria-labelledby="heading3" data-parent="#accordionexemple">
           <div class="card-body">
             <p>Avant de créer nore map, on doit d'abord créer des calques ("layers" en anglais). Ceci est important, car
-              cela nous permet de distinguer entre l'arrière-plan, les objets, les plateformes, etc. Crées deux calques
+              cela nous permet de distinguer entre l'arrière-plan, les objets, les plateformes, etc. Crée deux calques
               de tiles (Tile Layer), un qui s'appelle "layer_platforms" (pour les plateformes) et un qui s'appelle
-              "layer_background" (pour l'arrière plan). Tu peux effacer le calque pré-existant. Notes que l'ordre des
-              calques est important! Tu peux les déplacer, mais assures-toi que le calque des plateformes soit <b>au
+              "layer_background" (pour l'arrière-plan). Tu peux effacer le calque pré-existant. Notes que l'ordre des
+              calques est important! Tu peux les déplacer, mais assure-toi que le calque des plateformes soit <b>au
                 dessus</b> du calque de l'arrière-plan.</p>
 
             <img src="images/new_layer.png" alt="" width="70%">
 
-            <p>Maintenant tu peux remplir l'arrière-plan (layer_background) et les plateformes (layer_platforms). Afin
-              de rendre la configuration plus simple tu peux cacher / montrer les différents calques grâce au petit logo
+            <p>Maintenant, tu peux remplir l'arrière-plan (layer_background) et les plateformes (layer_platforms). Afin
+              de rendre la configuration plus simple, tu peux cacher / montrer les différents calques grâce au petit
+              logo
               de l'oeil. À la fin, montres les deux calques afin de visualiser ta map. Sois plus créatif que moi 😜.</p>
 
             <img src="images/full_map.png" alt="" width="90%">
 
             <p>Avant de pouvoir intégrer la map dans Phaser, on doit préciser ce qui est solide et ce qui ne l'est pas.
-              Afin de ce faire, trouve le logo "edit tileset" en bas de la colonne à droite. Une nouvelle fênetre
+              Afin de ce faire, trouve le logo "edit tileset" en bas de la colonne à droite. Une nouvelle fenêtre
               s'ouvre dans laquelle on peut ajouter des <i>propriétés</i> à notre tileset.</p>
 
             <img src="images/edit_tileset.png" alt="" width="10%">
-            <p>Séléctionnes <b>tous les tiles</b> (soit en glissant sur tous ou en faisant CTRL / CMD + A), et
-              séléctionnes le "+" en bas de l'écran pour ajouter une propriété.</p>
+            <p>Sélectionne <b>tous les tiles</b> (soit en glissant sur tous ou en faisant CTRL / CMD + A), et
+              sélectionne le "+" en bas de l'écran pour ajouter une propriété.</p>
 
             <img src="images/add_prop.png" alt="" width="100%">
 
@@ -189,16 +189,16 @@
             <img src="images/prop.png" alt="" width="50%">
 
             <p>Pour chaque tile avec laquelle le joueur peut rentrer en contact, coches la case "solide". Si tu ne
-              désires pas que ton joueur puisse interagir avec ce tile (les éléments de l'arrière plan), ne coches pas
+              désires pas que ton joueur puisse interagir avec ce tile (les éléments de l'arrière-plan), ne coches pas
               la case!</p>
 
             <p>Fini la partie dans Tiled! Il suffit maintenant d'exporter notre map, et on pourra l'intégrer dans
-              Phaser! Retournes sur ta carte avant d'exporter, sinon tu vas exporter uniquement les propriétés et non
+              Phaser! Retourne sur ta carte avant d'exporter, sinon tu vas exporter uniquement les propriétés et non
               les positions des tiles.</p>
 
             <img src="images/return.png" alt="" width="50%">
 
-            <p>Trouves la case "Export As" (Sous "File"), et exportes toute la map en format .json.</p>
+            <p>Trouve la case "Export As" (Sous "File"), et exporte toute la map en format .json.</p>
 
             <img src="images/export.png" alt="" width="50%">
 
@@ -221,9 +221,9 @@
             </button>
           </h2>
         </div>
-        <div id="collapse4" class="collapse" aria-labelledby="heading4" data-parent="#accordionExample">
+        <div id="collapse4" class="collapse" aria-labelledby="heading4" data-parent="#accordionexemple">
           <div class="card-body">
-            <p>On va maintenant intégrer notre nouvelle map dans Phaser! Créeons d'abord un jeu très basique en Phaser.
+            <p>On va maintenant intégrer notre nouvelle map dans Phaser! Créons d'abord un jeu très basique en Phaser.
               Mon jeu très basique est généré par le code suivant.</p>
 
             <pre><code class="language-js">
@@ -293,7 +293,8 @@
 
             <p><b>Note:</b> Ceci est un jeu très basique. Le but initial est de charger un monde plus compliqué, on
               pourra
-              toujours ajouter des fonctionalités plus complexes au jeu plus tard. De plus, afin de mieux organiser tous
+              toujours ajouter des fonctionnalités plus complexes au jeu plus tard. De plus, afin de mieux organiser
+              tous
               les documents à ajouter au jeu, j'ai mis toutes les images dans un dossier "assets". Ceci n'est bien
               entendu pas obligatoire, et peut être changé en changeant le code dans le fonction <code>preload()</code>.
             </p>
@@ -346,7 +347,7 @@
               );
             </code></pre>
 
-            <p>Rapelles-toi qu'on avait ajouté une propriété sur certains tiles. Cette propriété décrivait si ces tiles
+            <p>Rappelle-toi qu'on avait ajouté une propriété sur certains tiles. Cette propriété décrivait si ces tiles
               étaient solides ou non. On doit indiquer au code le nom et l'utilité de cette propriété. Cela peut être
               fait avec le code suivant.</p>
 
@@ -354,11 +355,11 @@
               this.platforms.setCollisionByProperty({ solide: true }); 
             </code></pre>
 
-            <p>N'oublies bien entendu pas d'enlèver la création de l'ancien groupe statique de plateformes ainsi que la
+            <p>N'oublie bien entendu pas d'enlever la création de l'ancien groupe statique de plateformes ainsi que la
               création
               des plateformes, comme nous ne nous en servons plus.</p>
 
-            <p>Notes qu'on a pas défini de collision entre le joueur et les plateformes. C'est parce que nos plateformes
+            <p>Note qu'on a pas défini de collision entre le joueur et les plateformes. C'est parce que nos plateformes
               s'appellent toujours <code>this.platforms</code>, donc la ligne de code qu'on a utilisée avant fonctionne
               toujours.</p>
 
@@ -366,7 +367,7 @@
                 this.physics.add.collider(this.player, this.platforms);
               </code></pre>
 
-            <p>Dans la function <code>update()</code>, c'est important de changer le
+            <p>Dans la fonction <code>update()</code>, c'est important de changer le
               <code>this.player.body.touching.down</code> en <code>this.player.body.onFloor()</code> (dans le code pour
               le saut), comme l'ancienne version de détecter si le joueur est au sol ne fonctionnera plus.
             </p>
@@ -469,7 +470,7 @@
       </div>
 
       <!-- Étape 5 -->
-      <div class="card">
+      <!-- <div class="card">
         <div class="card-header" id="heading5">
           <h2 class="mb-0">
             <button class="btn btn-link done task" type="button" data-toggle="collapse" data-target="#collapse5"
@@ -478,22 +479,24 @@
             </button>
           </h2>
         </div>
-        <div id="collapse5" class="collapse" aria-labelledby="heading5" data-parent="#accordionExample">
+        <div id="collapse5" class="collapse" aria-labelledby="heading5" data-parent="#accordionexemple">
           <div class="card-body">
-            <p>On a maintenant une grand map qui peut être générée sans trop de problèmes. Chouette! Mais cela reste un
+            <p>On a maintenant une grande map qui peut être générée sans trop de problèmes. Chouette! Mais cela reste un
               jeu bien plus simple que ce qu'on avait avant...</p>
 
-            <p>Pas de stress! On peut ajouter tout ce que notre autre jeu avait également. Voici quelques pointeurs sur
+            <p>Pas de stress! On peut ajouter tout ce que notre autre jeu avait également. Ce sera le contenu de la prochaine fiche! </p>
+              
+              Voici quelques pointeurs sur
               comment adapter le restant du code pour s'intégrer avec Tiled.</p>
 
             <p>
-              Pour ajouter des piques comme dans la Fiche 4, ajoutes un calque supplémentaire dans Tiled qui s'appelle
+              Pour ajouter des piques comme dans la Fiche 4, ajoute un calque supplémentaire dans Tiled qui s'appelle
               <code>layer_spikes</code> (ou autre, le nom est bien entendu arbitraire). Pour générer les piques dans
               ton jeu, il suffit dès lors d'ajouter ce code dans la fonction <code>create()</code>.
             <pre><code class="language-js">
                   this.spikes = this.map.createStaticLayer("layer_spikes", tileset);
                 </code></pre>
-            La fonction qui gére ce qu'il se passe lorsqu'un joueur touche les piques ne change pas, comme on a pas
+            La fonction qui gère ce qu'il se passe lorsqu'un joueur touche les piques ne change pas, comme on a pas
             changé ce qu'est <code>this.spikes</code>, mais uniquement comment on crée le groupe.
             </p>
 
@@ -504,7 +507,7 @@
               de jouer! </p>
           </div>
         </div>
-      </div>
+      </div> -->
 
 
     </div>
